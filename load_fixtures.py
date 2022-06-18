@@ -1,7 +1,7 @@
 from sqlalchemy.exc import IntegrityError
 
 from application.config import DevelopmentConfig
-from application.dao.models import Genre, Director, Movie, User
+from application.dao.models import Genre, Director, Movie
 from application.server import create_app
 from application.db_initialization import db
 from application.utils import read_json

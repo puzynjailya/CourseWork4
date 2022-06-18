@@ -21,12 +21,16 @@ class BaseConfig:
 
 class TestingConfig(BaseConfig):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+    #SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+    SQLALCHEMY_DATABASE_URI = "postgres:///:memory:"
 
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
     SQLALCHEMY_ECHO = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(
-        os.path.dirname(BASEDIR), "project.db"
-    )
+
+    #SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(
+        #os.path.dirname(BASEDIR), "project.db"
+    #)
+
+    SQLALCHEMY_DATABASE_URI = "postgresql://admin:admin_password@localhost/cw4_db.db"
