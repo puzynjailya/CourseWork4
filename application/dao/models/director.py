@@ -6,7 +6,7 @@ from application.db_initialization import db
 class Director(BaseMixin, db.Model):
     __tablename__ = 'directors'
 
-    name = db.Column(db.String(100), nullable=False, unique=True)
+    name = db.Column(db.String(255), nullable=False, unique=True)
 
     def __repr__(self):
         return f"<Director '{self.name.title()}'>"

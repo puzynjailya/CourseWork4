@@ -7,10 +7,10 @@ from application.db_initialization import db
 class User(BaseMixin, db.Model):
     __tablename__ = 'users'
 
-    email = db.Column(db.String(150), nullable=False, unique=True)
+    email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
-    name = db.Column(db.String(100))
-    surname = db.Column(db.String(100))
+    name = db.Column(db.String(255))
+    surname = db.Column(db.String(255))
 
     # Создаем связь для избранных жанров
     # favorite_genre = db.Column(db.Integer, db.ForeignKey('genres.id'))
