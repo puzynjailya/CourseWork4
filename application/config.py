@@ -33,4 +33,5 @@ class DevelopmentConfig(BaseConfig):
         #os.path.dirname(BASEDIR), "project.db"
     #)
 
-    SQLALCHEMY_DATABASE_URI = "postgresql://admin:admin_password@localhost/cw4_db"
+    #SQLALCHEMY_DATABASE_URI = "postgresql://admin:admin_password@localhost/cw4_db"
+    SQLALCHEMY_DATABASE_URI = "postgresql://admin:admin_password@pg/app_db"
