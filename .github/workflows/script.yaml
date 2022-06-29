@@ -1,0 +1,16 @@
+name: deploying_container
+on: [push]
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code pull
+        uses: actions/checkout@v2
+      - name: deploy docker image
+        run: docker build -t puzynjailya/skypro_hw26:$GITHUB_RUN_ID-$GITHUB_REF_NAME .
+      - name: docker login
+        run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: docker push
+        run: docker push puzynjailya/skypro_hw26:$GITHUB_RUN_ID-$GITHUB_REF_NAME
+
+

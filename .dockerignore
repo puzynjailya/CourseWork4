@@ -1,0 +1,7 @@
+.gitignore
+./venv/
+./.idea/
+./skypro_py_stand/
+./tests/
+.projectdb
+.README.md
