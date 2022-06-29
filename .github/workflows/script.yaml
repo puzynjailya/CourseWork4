@@ -15,13 +15,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_deploy
+    env:
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }}
     steps:
       - name: code pull
         uses: actions/checkout@v2
       - name: render configs
         run: |
           mkdir deploy
-          cat docker-compose-ci.yaml | envsubsts > deploy/docker-compose.yaml
+          cat docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
       - name: move files to server
         uses: appleboy/scp-action@master
         with:
