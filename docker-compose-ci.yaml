@@ -3,6 +3,10 @@ version: "3.9"
 services:
   api:
     image: puzynjailya/skypro_hw26:$GITHUB_RUN_ID-$GITHUB_REF_NAME
+    environment:
+      POSTGRES_USER: $DB_USERNAME
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_DB: $DB_NAME
     ports:
       - 80:80
     depends_on:
