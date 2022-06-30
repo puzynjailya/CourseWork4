@@ -34,10 +34,10 @@ class DevelopmentConfig(BaseConfig):
     #)
 
     #SQLALCHEMY_DATABASE_URI = "postgresql://admin:admin_password@localhost/cw4_db"
-    #SQLALCHEMY_DATABASE_URI = "postgresql://admin:admin_password@pg/app_db"
+    SQLALCHEMY_DATABASE_URI = "postgresql://admin:admin_password@pg/app_db"
 
-    POSTGRES_DB = os.getenv('POSTGRES_DB')
-    POSTGRES_USER = os.getenv('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+    #POSTGRES_DB = os.getenv('POSTGRES_DB')
+    #POSTGRES_USER = os.getenv('POSTGRES_USER')
+    #POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
 
-    SQLALCHEMY_DATABASE_URI = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_DB}/app_db"
+    #SQLALCHEMY_DATABASE_URI = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_DB}/app_db"
