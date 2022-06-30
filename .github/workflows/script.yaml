@@ -26,6 +26,8 @@ jobs:
         run: |
           mkdir deploy
           cat docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
+       
+     # Задача перемещения файла на сервере
       - name: move files to server
         uses: appleboy/scp-action@master
         with:
@@ -35,16 +37,17 @@ jobs:
           source: "deploy/docker-compose.yaml"
           target: "app_ci"
           strip_components: 1
-
+    
+    # Задача деплоинга образа докера
       - name: deploy docker-compose
-          uses: appleboy/ssh-action@v0.1.4
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-            sript: | 
-              cd app_ci
-              echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          sript: | 
+            cd app_ci
+            echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
               
 
 
