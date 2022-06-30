@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: code pull
         uses: actions/checkout@v2
+
       - name: render configs
         run: |
           mkdir deploy
@@ -45,7 +46,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          sript: | 
+          script: | 
             cd app_ci
             echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
 
